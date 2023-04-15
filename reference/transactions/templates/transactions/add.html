@@ -1,0 +1,13 @@
+{% extends 'transactions/layouts.html' %}
+
+{% block body %}
+
+<h1>Add New Reference Transactions</h1>
+
+<form action="{% url 'transactions:add' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit Form">
+</form>
+
+{% endblock %}

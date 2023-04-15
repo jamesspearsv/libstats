@@ -1,3 +1,9 @@
-from django.forms import Form
+from django.forms import ModelForm, Select
+from transactions.models import Transactions
 
-class 
+class AddForm(ModelForm):
+    class Meta:
+
+        model = Transactions
+        fields = ['type', 'location', 'format']
+        widgets = {'type': Select(), 'location': Select(), 'format': Select()}

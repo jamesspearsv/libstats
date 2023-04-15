@@ -8,7 +8,16 @@ class Transactions(models.Model):
     Transaction fields:
     id (auto added), type, location, format, datetime
     '''
-    type = models.CharField(max_length=64)
+
+    ''' 
+    Model Field Choices
+    '''
+    class TypeChoices(models.TextChoices):
+        INFORMATION_SERVICES = 'information services'
+        DIGITAL_RESOURCES = 'digital resources'
+
+    
+    type = models.CharField(max_length=64, choices=TypeChoices)
     location = models.CharField(max_length=64)
     format = models.CharField(max_length=64)
     date = models.DateTimeField(auto_now_add=True)
