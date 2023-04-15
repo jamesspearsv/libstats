@@ -2,9 +2,10 @@
 
 This is a personal project to create a reference transaction statics app for use in a public library. Similar to a clone of SpringShare's LibAnswers modules.
 ---
-- [ ] Create database models
-- [ ] Implement model update function
-- [ ] Implement model read and view function
-- [ ] Create front end views
+- [x] Set up initial Django project and apps
+- [x] Create database model(s)
+- [ ] Create model form in view
+- [ ] Implement front-end model update function
+- [ ] Implement front-end model read function
 - [ ] Implement user authentication and functions
 
