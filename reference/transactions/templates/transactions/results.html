@@ -1,0 +1,26 @@
+{% extends 'transactions/layouts.html' %}
+
+{% block body %}
+
+
+    <table>
+        <tr>
+            <th>Transaction #</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Format</th>
+            <th>Date</th>
+        </tr>
+        
+        {% for result in results %}
+        <tr>
+            <td>{{ result.id }}</td>
+            <td>{{ result.type }}</td>
+            <td>{{ result.location }}</td>
+            <td>{{ result.format }}</td>
+            <td>{{ result.date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

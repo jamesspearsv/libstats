@@ -11,5 +11,8 @@
 <body>
     {% block body %}
     {% endblock %}
+    <a href="{% url 'transactions:index' %}">Home</a>
+    <a href="{% url 'transactions:add' %}">Add Transactions</a>
+    <a href="{% url 'transactions:view' %}">View Transactions</a>
 </body>
 </html>
