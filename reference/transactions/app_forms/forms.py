@@ -6,4 +6,4 @@ class AddForm(ModelForm):
 
         model = Transactions
         fields = ['type', 'location', 'format']
-        widgets = {'type': Select(), 'location': Select(), 'format': Select()}
+        

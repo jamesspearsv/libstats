@@ -12,15 +12,30 @@ class Transactions(models.Model):
     ''' 
     Model Field Choices
     '''
-    class TypeChoices(models.TextChoices):
-        INFORMATION_SERVICES = 'information services'
-        DIGITAL_RESOURCES = 'digital resources'
+    type_choices = (
+        ("information services", "Information Services"), ("digital resources", "Digital Resources"), ("directional", "Directional"), 
+        ("tech help", "Tech Help"))
+    location_choices = (
+        ("circ", "Circulation"),
+        ("ref", "Reference"), 
+        ("childrens", "Childrens"))
+    format_choices = (
+        ("in-person", "In-Person"),
+        ("virtual", "Virtual"),
+        ("phone", "Phone"))
 
     
-    type = models.CharField(max_length=64, choices=TypeChoices)
-    location = models.CharField(max_length=64)
-    format = models.CharField(max_length=64)
-    date = models.DateTimeField(auto_now_add=True)
+    type = models.CharField(
+        max_length=64, 
+        choices=type_choices)
+    location = models.CharField(
+        max_length=64, 
+        choices=location_choices)
+    format = models.CharField(
+        max_length=64,
+        choices=format_choices)
+    date = models.DateTimeField(
+        auto_now_add=True)
 
     def __str__(self):
         return f"Transaction {self.id} | Type {self.type} | Location {self.location} | Format {self.format} | Date {self.date}"
