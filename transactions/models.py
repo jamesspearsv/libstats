@@ -12,7 +12,9 @@ class Transaction(models.Model):
     
     # Model Field Choices
     type_choices = (
-        ("information services", "Information Services"), ("digital resources", "Digital Resources"), ("directional", "Directional"), 
+        ("digital resources", "Digital Resources"),
+        ("directional", "Directional"), 
+        ("information services", "Information Services"),
         ("tech help", "Tech Help"))
     location_choices = (
         ("circulation", "Circulation"),
@@ -25,7 +27,7 @@ class Transaction(models.Model):
 
     # Model fields
     type = models.CharField(
-        max_length=64, 
+        max_length=64,
         choices=type_choices)
     location = models.CharField(
         max_length=64, 
