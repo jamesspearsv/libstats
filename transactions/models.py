@@ -15,6 +15,7 @@ class Transaction(models.Model):
         ("digital resources", "Digital Resources"),
         ("directional", "Directional"), 
         ("information services", "Information Services"),
+        ("known item request", "Known Item Request"),
         ("tech help", "Tech Help"))
     location_choices = (
         ("circulation", "Circulation"),
@@ -22,8 +23,8 @@ class Transaction(models.Model):
         ("childrens", "Childrens"))
     format_choices = (
         ("in-person", "In-Person"),
-        ("virtual", "Virtual"),
-        ("phone", "Phone"))
+        ("phone", "Phone"),
+        ("virtual", "Virtual"))
 
     # Model fields
     type = models.CharField(

@@ -5,5 +5,6 @@ app_name = "transactions"
 urlpatterns = [
     path('', views.index, name='index'),
     path('add/', views.add, name='add'),
-    path('view', views.view, name='view')
+    path('view', views.view, name='view'),
+    path('reports', views.reports, name='reports')
 ]

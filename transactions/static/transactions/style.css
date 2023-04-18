@@ -24,7 +24,10 @@ main {
 
 .page-header {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 2%;
+    padding: 2%;
 }
 
 form {
@@ -36,4 +39,14 @@ form {
 
 form > input, select {
     margin: 2%;
+}
+
+table {
+    text-align: center;
+    margin-top: 2%;
+}
+
+thead {
+    background-color: #185c36;
+    color: #ffffff;
 }

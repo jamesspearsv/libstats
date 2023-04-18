@@ -1,0 +1,46 @@
+{% extends 'transactions/layouts.html' %}
+
+{% block body %}
+<section class="page-header">
+    <h1>View Report</h1>
+    <p>Report for {{ location }} from {{ start_date }} to {{ end_date }}</p>
+</section>
+
+<h2>Transaction Type Report</h2>
+
+<table class="table table-bordered table-striped">
+   <thead>
+    <tr>
+        {% for key, value in type_data.items %}
+            <th>{{ key }}</th>
+        {% endfor %}
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+        {% for key, value in type_data.items %}
+        <th>{{ value }}</th>
+    {% endfor %}
+    </tr>
+   </tbody> 
+</table>
+
+<h2>Transactions Format Report</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+     <tr>
+         {% for key, value in format_data.items %}
+             <th>{{ key }}</th>
+         {% endfor %}
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+         {% for key, value in format_data.items %}
+         <th>{{ value }}</th>
+     {% endfor %}
+     </tr>
+    </tbody> 
+ </table>
+
+{% endblock %}

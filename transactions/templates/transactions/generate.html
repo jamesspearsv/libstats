@@ -1,0 +1,20 @@
+{% extends 'transactions/layouts.html' %}
+
+{% block body %}
+<section class="page-header">
+    <h1>Generate Reports</h1>
+</section>
+
+<form action="{% url 'transactions:reports' %}" method="post">
+    {% csrf_token %}
+        <input type="date" name="start_date" id="start_date">
+        <input type="date" name="end_date" id="end_date">
+        <select name="location" id="location">
+            {% for choice in choices %}
+                <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Generate Report">
+</form>
+
+{% endblock %}

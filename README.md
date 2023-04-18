@@ -11,6 +11,7 @@ This is a personal project to create a reference transaction statics app for use
 - [x] Add ability to update model from front-end
 - [x] Implement front-end model read function
 - [ ] Implment CSV export and download function
+- [ ] Add reports function: return count of transactions by type and format for each location and specified dates.
 - [ ] Implement user authentication and functions
 
 ## Front End Tasks
