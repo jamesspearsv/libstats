@@ -36,7 +36,8 @@ def view(request):
             end_date =  request.POST['end_date'] #YYYY-MM-DD
             form_location = request.POST['location']
 
-
+            form = SearchForm(request.POST)
+            form.data['location']
             # Query model for transactions matching filter
             results = Transaction.objects.filter(date__gte=stat_date, date__lte=end_date, location = form_location)
 

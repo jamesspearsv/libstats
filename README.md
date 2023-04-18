@@ -15,6 +15,7 @@ This is a personal project to create a reference transaction statics app for use
 
 ## Front End Tasks
 
-- [ ] Style page layout
-- [ ] Style forms
-- [ ] Create site navigation
+- [x] Style page layout
+- [x] Create site navigation
+- [ ] Style forms and add lable where needed.
+- [ ] Style transaction results table

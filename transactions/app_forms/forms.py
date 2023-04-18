@@ -14,7 +14,9 @@ class SearchForm(Form):
         ('childrens', 'Childrens')
     )
 
-    start_date = DateField(widget=SelectDateWidget())
-    end_date = DateField(widget=SelectDateWidget())
-    location = ChoiceField(choices=location_choices)
+    start_date = DateField(label='Start Date', widget=SelectDateWidget())
+    end_date = DateField(label='End Date', widget=SelectDateWidget())
+    location = ChoiceField(label='Location', choices=location_choices)
+
+
         

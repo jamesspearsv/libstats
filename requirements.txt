@@ -1,0 +1,5 @@
+-i https://pypi.org/simple
+asgiref==3.6.0 ; python_version >= '3.7'
+django==4.2
+sqlparse==0.4.3 ; python_version >= '3.5'
+tzdata==2023.3 ; sys_platform == 'win32'
