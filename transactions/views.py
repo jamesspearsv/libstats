@@ -11,7 +11,6 @@ def index(request):
 def add(request):
     if request.method == 'GET':
         form = AddForm()
-        print(form.fields)
         return render(request, 'transactions/add.html', {
             'form': form,
         })
@@ -63,7 +62,7 @@ def reports(request):
         start_date = request.POST['start_date'] #YYYY-MM-DD
         end_date =  request.POST['end_date'] #YYYY-MM-DD
         form_location = request.POST['location']
-        print(form_location.capitalize())
+
         # Model: choices[x][x] == choices[value][label]
         
         type_report_data = {}
@@ -73,30 +72,16 @@ def reports(request):
         for i in range(len(Transaction.type_choices)):
             key = Transaction.type_choices[i][1]
             value = Transaction.objects.filter(date__gte=start_date, date__lte=end_date, location=form_location, type=Transaction.type_choices[i][0]).count()
-            print("---------")
-            print(f"{i}")
-            print(f"{key}")
-            print(f"{value}")
-            print('---------')
 
             type_report_data[key] = value
-
-        print(type_report_data)
 
         # Get data for format report
         for i in range(len(Transaction.format_choices)):
             key = Transaction.format_choices[i][1]
             value = Transaction.objects.filter(date__gte=start_date, date__lte=end_date, location=form_location, format=Transaction.format_choices[i][0]).count()
-            print("---------")
-            print(f"{i}")
-            print(f"{key}")
-            print(f"{value}")
-            print('---------')
 
             format_report_data[key] = value
 
-        print(format_report_data)
-        print(form_location)
         return render(request, 'transactions/reports.html', {
             'start_date': start_date, 
             'end_date': end_date, 
