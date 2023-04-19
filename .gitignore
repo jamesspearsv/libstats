@@ -1,5 +1,5 @@
-# Ignore all DB files
-*.sqlite3
+# Ignore production DB file
+db.sqlite3
 
 # Ignore MacOS files
 .DS_Store

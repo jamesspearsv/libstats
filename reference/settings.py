@@ -21,10 +21,10 @@ MODE = 'DEV'
 # SECURITY WARNING: keep the secret key used in production secret!
 if MODE == 'PROD':
     with open('/etc/reference-config.json') as config_file:
-        config = json.load
+        config = json.load(config_file)
 
     DEBUG = False
-    ALLOWED_HOSTS = ['192.168.110.74', '10.24.20.213', '127.0.0.1']
+    ALLOWED_HOSTS = ['192.168.110.74', '127.0.0.1', '10.24.20.104']
     SECRET_KEY = config['SECRET_KEY']
 
 if MODE == 'DEV':
@@ -90,7 +90,7 @@ if MODE == 'DEV':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'reference_db.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
 
