@@ -11,22 +11,33 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import json
+
+# MODE == "DEV" or "PROD"
+MODE = 'DEV'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: keep the secret key used in production secret!
+if MODE == 'PROD':
+    with open('/etc/reference-config.json') as config_file:
+        config = json.load
+
+    DEBUG = False
+    ALLOWED_HOSTS = ['192.168.110.74', '10.24.20.213', '127.0.0.1']
+    SECRET_KEY = config['SECRET_KEY']
+
+if MODE == 'DEV':
+    DEBUG = True
+    ALLOWED_HOSTS = []
+    SECRET_KEY = 'django-insecure-g13pdog#2ebma&r_vr=4&#d_2u3=#8n1e304zio$6!zr&m87df'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g13pdog#2ebma&r_vr=4&#d_2u3=#8n1e304zio$6!zr&m87df'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-#ALLOWED_HOSTS = ['192.168.110.74', '10.24.20.213', '127.0.0.1']
-ALLOWED_HOSTS = []
+# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/ 
 
 
 # Application definition
@@ -75,12 +86,13 @@ WSGI_APPLICATION = 'reference.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if MODE == 'DEV':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'reference_db.sqlite3',
+        }
     }
-}
 
 
 # Password validation
