@@ -1,1 +1,0 @@
-Virtualenv location: /home/james/.local/share/virtualenvs/reference-LyCrbb8I
