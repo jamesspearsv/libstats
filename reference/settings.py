@@ -15,7 +15,7 @@ import os
 import json
 
 # MODE == "DEV" or "PROD"
-MODE = 'DEV'
+MODE = 'PROD'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -23,7 +23,7 @@ if MODE == 'PROD':
     with open('/etc/reference-config.json') as config_file:
         config = json.load(config_file)
 
-    DEBUG = False
+    DEBUG = True
     ALLOWED_HOSTS = ['192.168.110.74', '127.0.0.1', '10.24.20.104']
     SECRET_KEY = config['SECRET_KEY']
 
@@ -86,13 +86,13 @@ WSGI_APPLICATION = 'reference.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if MODE == 'DEV':
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+
+DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.sqlite3',
+           'NAME': BASE_DIR / 'db.sqlite3',
+       }
+   }
 
 
 # Password validation
@@ -119,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'US/Eastern'
 
 USE_I18N = True
 
@@ -129,6 +129,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # Default primary key field type
