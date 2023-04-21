@@ -15,7 +15,7 @@ import os
 import json
 
 # MODE == "DEV" or "PROD"
-MODE = 'PROD'
+MODE = 'DEV'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -31,7 +31,7 @@ if MODE == 'PROD':
 
 if MODE == 'DEV':
     DEBUG = True
-    ALLOWED_HOSTS = ['10.24.20.104', 'ref.jspears.me']
+    ALLOWED_HOSTS = ['10.24.20.104', 'ref.jspears.me', '127.0.0.1']
     SECRET_KEY = 'django-insecure-g13pdog#2ebma&r_vr=4&#d_2u3=#8n1e304zio$6!zr&m87df'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
