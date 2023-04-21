@@ -15,7 +15,7 @@ import os
 import json
 
 # MODE == "DEV" or "PROD"
-MODE = 'DEV'
+MODE = 'PROD'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: keep the secret key used in production secret!
