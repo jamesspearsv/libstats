@@ -29,7 +29,7 @@ if MODE == 'PROD':
     #SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECRET_KEY = config['SECRET_KEY']
 
-if MODE == 'DEV':
+if MODE == 'PROD':
     DEBUG = True
     ALLOWED_HOSTS = ['10.24.20.104', 'ref.jspears.me', '127.0.0.1']
     SECRET_KEY = 'django-insecure-g13pdog#2ebma&r_vr=4&#d_2u3=#8n1e304zio$6!zr&m87df'
