@@ -14,24 +14,25 @@ from pathlib import Path
 import os
 import json
 
-# MODE == "DEV" or "PROD"
+# Set app running mode
+# MODE == "DEV" OR "PROD"
 MODE = 'PROD'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: keep the secret key used in production secret!
-if MODE == 'PROD':
+if MODE == 'PROD': # Use PROD mode for running on production server
     with open('/etc/reference-config.json') as config_file:
         config = json.load(config_file)
 
-    DEBUG = False
-    ALLOWED_HOSTS = [ 'ref.jspears.me', '10.24.20.104']
-    CSRF_TRUSTED_ORIGINS = ['https://ref.jspears.me','http://10.24.20.104']
+    DEBUG = True
+    ALLOWED_HOSTS = ['.libstats.work', '.jspears.me', '10.24.20.104']
+    CSRF_TRUSTED_ORIGINS = ['https://ref.libstats.work', 'https://ref.jspears.me','http://10.24.20.104']
     #SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECRET_KEY = config['SECRET_KEY']
 
-if MODE == 'PROD':
-    DEBUG = True
-    ALLOWED_HOSTS = ['10.24.20.104', 'ref.jspears.me', '127.0.0.1']
+if MODE == 'DEV': # Use DEV mode for running on local development machine
+    DEBUG = False
+    ALLOWED_HOSTS = []
     SECRET_KEY = 'django-insecure-g13pdog#2ebma&r_vr=4&#d_2u3=#8n1e304zio$6!zr&m87df'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
