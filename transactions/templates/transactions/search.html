@@ -2,18 +2,21 @@
 
 {% block body %}
 <section class="page-header">
-    <h1>View Recorded Transaction Logs</h1>
+    <h1>View Recorded Transaction Log</h1>
 </section>
 
 <form action="{% url 'transactions:view' %}" method="post">
     {% csrf_token %}
+        <label for="start_date">Start Date:</label>
         <input type="date" name="start_date" id="start_date">
+        <label for="end_date">End Date:</label>
         <input type="date" name="end_date" id="end_date">
+        <!--
         <select name="location" id="location">
             {% for choice in choices %}
                 <option value="{{ choice.0 }}">{{ choice.1 }}</option>
             {% endfor %}
-        </select>
+        </select> -->
         <input type="submit" value="Search Transactions">
 </form>
 

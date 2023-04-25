@@ -7,8 +7,11 @@
 
 <form action="{% url 'transactions:reports' %}" method="post">
     {% csrf_token %}
+        <label for="start_date">Start Date:</label>
         <input type="date" name="start_date" id="start_date">
+        <label for="end_date">End Date:</label>
         <input type="date" name="end_date" id="end_date">
+        <label for="location">Location:</label>
         <select name="location" id="location">
             {% for choice in choices %}
                 <option value="{{ choice.0 }}">{{ choice.1 }}</option>

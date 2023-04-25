@@ -31,16 +31,16 @@ def view(request):
         if request.method == 'POST':
 
             # Validate form response data. If not valid return an error.
-            if request.POST['start_date'] == "" or request.POST['end_date'] == "" or request.POST['location'] == "":
+            if request.POST['start_date'] == "" or request.POST['end_date'] == "": # or request.POST['location'] == "":
                 return HttpResponse('error')
 
             # Store form response data to query database
             start_date = request.POST['start_date'] #YYYY-MM-DD
             end_date =  request.POST['end_date'] #YYYY-MM-DD
-            form_location = request.POST['location']
+            #form_location = request.POST['location']
 
             # Query model for transactions matching filter
-            results = Transaction.objects.filter(date__gte=start_date, date__lte=end_date, location = form_location)
+            results = Transaction.objects.filter(date__gte=start_date, date__lte=end_date)
 
             return render(request, 'transactions/results.html', {
                 'results': results
