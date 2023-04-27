@@ -19,7 +19,7 @@
    <tbody>
     <tr>
         {% for key, value in type_data.items %}
-        <th>{{ value }}</th>
+        <td>{{ value }}</td>
     {% endfor %}
     </tr>
    </tbody> 
@@ -37,10 +37,9 @@
     <tbody>
      <tr>
          {% for key, value in format_data.items %}
-         <th>{{ value }}</th>
+         <td>{{ value }}</td>
      {% endfor %}
      </tr>
     </tbody> 
  </table>
-
 {% endblock %}
