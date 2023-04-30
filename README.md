@@ -25,5 +25,5 @@ Initial deployment of app was on 4/21/2023
 - [x] Create site navigation
 - [x] Style forms and add lable where needed
 - [x] Style transaction results table
+- [x] Implment CSV export and download function
 - [ ] Style mobile view of app to better fit smaller screens.
-- [ ] Implment CSV export and download function

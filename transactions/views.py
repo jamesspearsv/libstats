@@ -42,6 +42,9 @@ def view(request):
             # Query model for transactions matching filter
             results = Transaction.objects.filter(date__gte=start_date, date__lte=end_date)
 
+            print(results[0].id)
+            print(results[0].date)
+
             return render(request, 'transactions/results.html', {
                 'results': results
             })

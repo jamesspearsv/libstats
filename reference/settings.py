@@ -32,7 +32,7 @@ if MODE == 'PROD': # Use PROD mode for running on production server
 
 if MODE == 'DEV': # Use DEV mode for running on local development machine
     DEBUG = True
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['*']
     SECRET_KEY = 'django-insecure-g13pdog#2ebma&r_vr=4&#d_2u3=#8n1e304zio$6!zr&m87df'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
