@@ -10,3 +10,6 @@ Pipfile.lock
 # Ignore socket files
 reference.sock
 .reference.sock*
+
+# Ignore static files
+static/
