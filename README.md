@@ -15,7 +15,8 @@ Initial deployment of app was on 4/21/2023
 - [x] Add ability to update model from front-end
 - [x] Implement front-end model read function
 - [x] Add reports function: return count of transactions by type and format for each location and specified dates
-- [dev] Adjust view function to return list of transactions at all locations in specified date range
+- [x] Adjust view function to return list of transactions at all locations in specified date 
+range
 - [ ] Implement user authentication and functions
 - [ ] Configure error and 404 pages
 
