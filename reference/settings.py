@@ -16,7 +16,7 @@ import json
 
 # Set app running mode
 # MODE == "DEV" OR "PROD"
-MODE = 'PROD'
+MODE = 'DEV'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -29,6 +29,8 @@ if MODE == 'PROD': # Use PROD mode for running on production server
     CSRF_TRUSTED_ORIGINS = ['https://ref.libstats.work', 'https://ref.jspears.me','http://10.24.20.104']
     #SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECRET_KEY = config['SECRET_KEY']
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATIC_URL = '/static/'
 
 if MODE == 'DEV': # Use DEV mode for running on local development machine
     DEBUG = True

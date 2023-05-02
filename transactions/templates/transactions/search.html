@@ -1,7 +1,7 @@
 {% extends 'transactions/layouts.html' %}
 
 {% block title %}
-Title
+View Transactions
 {% endblock %}
 
 {% block body %}
@@ -15,12 +15,6 @@ Title
         <input type="date" name="start_date" id="start_date">
         <label for="end_date">End Date:</label>
         <input type="date" name="end_date" id="end_date">
-        <!--
-        <select name="location" id="location">
-            {% for choice in choices %}
-                <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-            {% endfor %}
-        </select> -->
         <input type="submit" value="Search Transactions">
 </form>
 
