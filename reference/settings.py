@@ -16,7 +16,7 @@ import json
 
 # Set app running mode
 # MODE == "DEV" OR "PROD"
-MODE = 'DEV'
+MODE = 'PROD'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -24,7 +24,7 @@ if MODE == 'PROD': # Use PROD mode for running on production server
     with open('/etc/reference-config.json') as config_file:
         config = json.load(config_file)
 
-    DEBUG = True
+    DEBUG = False
     ALLOWED_HOSTS = ['.libstats.work', '.jspears.me', '10.24.20.104']
     CSRF_TRUSTED_ORIGINS = ['https://ref.libstats.work', 'https://ref.jspears.me','http://10.24.20.104']
     #SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
