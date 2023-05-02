@@ -32,7 +32,7 @@ def view(request):
 
             # Validate form response data. If not valid return an error.
             if request.POST['start_date'] == "" or request.POST['end_date'] == "": # or request.POST['location'] == "":
-                return HttpResponseServerError('view:errors')
+                return render(request, 'transactions/500.html', status=500)
 
             # Store form response data to query database
             start_date = request.POST['start_date'] #YYYY-MM-DD
@@ -60,7 +60,7 @@ def reports(request):
     if request.method == 'POST':
         # Validate form response data. If not valid return an error.
         if request.POST['start_date'] == "" or request.POST['end_date'] == "" or request.POST['location'] == "":
-            return HttpResponseServerError('reports:error')
+            return render(request, 'transactions/500.html', status=500)
 
         start_date = request.POST['start_date'] #YYYY-MM-DD
         end_date =  request.POST['end_date'] #YYYY-MM-DD
