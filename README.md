@@ -18,6 +18,7 @@ Initial deployment of app was on 4/21/2023
 - [x] Adjust view function to return list of transactions at all locations in specified date 
 range
 - [x] Configure error and 404 pages
+- [ ] Implement user sessions
 - [ ] Implement user authentication and functions
 
 ## Front End Tasks
