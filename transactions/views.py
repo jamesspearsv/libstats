@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseServerError
 from django.urls import reverse
 from .app_forms.forms import AddForm
 from .models import Transaction
@@ -32,7 +32,7 @@ def view(request):
 
             # Validate form response data. If not valid return an error.
             if request.POST['start_date'] == "" or request.POST['end_date'] == "": # or request.POST['location'] == "":
-                return HttpResponse('error')
+                return HttpResponseServerError('view:errors')
 
             # Store form response data to query database
             start_date = request.POST['start_date'] #YYYY-MM-DD
@@ -60,7 +60,7 @@ def reports(request):
     if request.method == 'POST':
         # Validate form response data. If not valid return an error.
         if request.POST['start_date'] == "" or request.POST['end_date'] == "" or request.POST['location'] == "":
-            return HttpResponse('reports: error')
+            return HttpResponseServerError('reports:error')
 
         start_date = request.POST['start_date'] #YYYY-MM-DD
         end_date =  request.POST['end_date'] #YYYY-MM-DD
@@ -97,3 +97,9 @@ def reports(request):
         return render(request, 'transactions/generate.html', {
             'choices': Transaction.location_choices
         })
+    
+def error404(request, exception=None):
+    return render(request, 'transactions/404.html', status=404)
+
+def error500(request, exception=None):
+    return render(request, 'transactions/500.html', status=500)

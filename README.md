@@ -17,8 +17,9 @@ Initial deployment of app was on 4/21/2023
 - [x] Add reports function: return count of transactions by type and format for each location and specified dates
 - [x] Adjust view function to return list of transactions at all locations in specified date 
 range
+- [x] Configure error and 404 pages
+- [ ] Implement user sessions
 - [ ] Implement user authentication and functions
-- [ ] Configure error and 404 pages
 
 ## Front End Tasks
 
@@ -27,4 +28,5 @@ range
 - [x] Style forms and add lable where needed
 - [x] Style transaction results table
 - [x] Implment CSV export and download function
+- [ ] Add bootstrap error and success banners
 - [ ] Style mobile view of app to better fit smaller screens.

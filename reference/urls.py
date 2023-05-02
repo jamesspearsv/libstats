@@ -24,5 +24,7 @@ urlpatterns = [
     path('', include('transactions.urls'))
 ]
 
-#urlpatterns += staticfiles_urlpatterns()
+handler404 = 'transactions.views.error404'
+handler500 = 'transactions.views.error500'
 
+#urlpatterns += staticfiles_urlpatterns()
