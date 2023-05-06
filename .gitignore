@@ -11,7 +11,7 @@ Pipfile.lock
 reference.sock
 .reference.sock*
 
-# Ignore static files
+# Ignore static files. Generate using Djano-Admin collectstatic command
 static/
 
 # Ignore __pycache__

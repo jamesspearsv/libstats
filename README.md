@@ -4,7 +4,7 @@ This is a personal project to create a reference transaction statics app for use
 
 Initial deployment of app was on 4/21/2023
 ---
-# TODO Lists
+# TODO Lists & Bugs
 
 ## Back End Tasks
 
@@ -28,7 +28,9 @@ range
 - [x] Style transaction results table
 - [x] Implment CSV export and download function
 - [x] Add bootstrap error and success banners
----
+- [x] Implement more robust alert and message system. Currently alerts are enabled only for adding transactions. Should be programmatic for all pages with the ability to send different messages.
+
 # Bugs
-- [ ] transactions/views.py (view): Attempting to view a range of dates without any transactions returns and empty set of results. Should return a view that state this for to the user.
-- [ ] transactions/views.py (view): User can attempt to qurey a range of dates with an end date prior to the given start date. Should return an error to the user.
+
+- [x] transactions/views.py (view): Attempting to view a range of dates without any transactions returns and empty set of results. Should return a view that state this for to the user.
+- [x] transactions/views.py (view): User can attempt to qurey a range of dates with an end date prior to the given start date. Should return an error to the user.

@@ -4,6 +4,7 @@ from django.urls import reverse
 from .app_forms.forms import AddForm
 from .models import Transaction
 
+
 # Create your views here.
 def index(request):
     return render(request, 'transactions/index.html')
@@ -11,16 +12,18 @@ def index(request):
 def add(request):
     if request.method == 'GET':
         form = AddForm()
-
+        
         try:
             request.GET['s']
-            alert = True
+            alert = [True, 'primary', '<strong>Success!</strong> Transaction recorded successfully']
         except:
-            alert = False
+            alert = [False, '', '']
 
         return render(request, 'transactions/add.html', {
             'form': form,
-            'alert': alert
+            'alert': alert[0],
+            'type': alert[1],
+            'message': alert[2]
         })
     
     if request.method == "POST":
@@ -29,8 +32,7 @@ def add(request):
         if form.is_valid():
             # If form is valid save new transaction to model
             form.save()
-            redirect_url = f"{reverse('transactions:add')}?s=1"
-            return HttpResponseRedirect(redirect_url)
+            return HttpResponseRedirect(f"{reverse('transactions:add')}?s=1")
         
         else:
             return render(request, 'transactions/500.html', status=500)
@@ -40,26 +42,39 @@ def view(request):
         if request.method == 'POST':
 
             # Validate form response data. If not valid return an error.
-            if request.POST['start_date'] == "" or request.POST['end_date'] == "": # or request.POST['location'] == "":
-                return render(request, 'transactions/500.html', status=500)
+            try: # If form data is valid
+                # Store form response data to query database
+                start_date = request.POST['start_date'] #YYYY-MM-DD
+                end_date =  request.POST['end_date'] #YYYY-MM-DD
 
-            # Store form response data to query database
-            start_date = request.POST['start_date'] #YYYY-MM-DD
-            end_date =  request.POST['end_date'] #YYYY-MM-DD
-            #form_location = request.POST['location']
+                if end_date < start_date:
+                    return HttpResponseRedirect(f"{reverse('transactions:view')}?e=1")
+                
+                # Query model for transactions matching filter
+                results = Transaction.objects.filter(date__gte=start_date, date__lte=end_date)
 
-            # Query model for transactions matching filter
-            results = Transaction.objects.filter(date__gte=start_date, date__lte=end_date)
-
-
-            return render(request, 'transactions/results.html', {
-                'results': results
-            })
+                return render(request, 'transactions/results.html', {
+                    'results': results,
+                    'start_date': start_date,
+                    'end_date': end_date
+                })
+            
+            except: # If form contains invalid data or not data
+                return HttpResponseRedirect(f"{reverse('transactions:view')}?e=2")
 
         if request.method == 'GET':
 
+            try:
+                request.GET['e']
+                alert = [True, 'danger', '<strong>Error:</strong> Please submit a valid start date and end date range.']
+            except:
+                alert = [False, '', '']
+
             return render(request, 'transactions/search.html', {
-                'choices': Transaction.location_choices
+                'choices': Transaction.location_choices,
+                'alert': alert[0],
+                'type': alert[1],
+                'message': alert[2]
             })
 
 def reports(request):

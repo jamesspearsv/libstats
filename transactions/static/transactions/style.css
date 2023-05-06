@@ -60,3 +60,8 @@ thead {
     background-color: #185c36;
     color: #ffffff;
 }
+
+#empty {
+    text-align: center;
+    margin-top: 5%;
+}

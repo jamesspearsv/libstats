@@ -8,8 +8,10 @@ View Logs
 {% block body %}
     <section class="page-header">
         <h1>View Transactions</h1>
-        <p>Add Log Dates</p>
+        <p>{{ start_date }} to {{ end_date }}</p>
     </section>
+    
+    {% if results %}
     <div id="export">
         <button class="btn btn-primary" id="downloadbutton">Export as CSV</button>
     </div>
@@ -20,7 +22,7 @@ View Logs
                 <th>Type</th>
                 <th>Location</th>
                 <th>Format</th>
-                <th>Date (YYYY-MM-DD)</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +37,13 @@ View Logs
             {% endfor %}
         </tbody>
     </table>
+    {% else %}
+    <hr>
+    <div id="empty">
+        <h2>There's nothing to see here...</h2>
+        <p>Looks like there were not any trancations recorded during these days.</p>
+    </div>
+    {%endif%}
 {% endblock %}
 
 {% block js %}
