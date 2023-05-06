@@ -12,7 +12,7 @@ Record Transaction
 <form action="{% url 'transactions:add' %}" method="post">
     {% csrf_token %}
     {{ form }}
-    <input type="submit" value="Submit & Clear">
+    <input type="submit" value="Submit & Clear" class="btn btn-primary">
 </form>
 
 {% endblock %}

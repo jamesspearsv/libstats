@@ -11,8 +11,16 @@ def index(request):
 def add(request):
     if request.method == 'GET':
         form = AddForm()
+
+        try:
+            request.GET['s']
+            alert = True
+        except:
+            alert = False
+
         return render(request, 'transactions/add.html', {
             'form': form,
+            'alert': alert
         })
     
     if request.method == "POST":
@@ -21,10 +29,11 @@ def add(request):
         if form.is_valid():
             # If form is valid save new transaction to model
             form.save()
-            return HttpResponseRedirect(reverse('transactions:add'))
+            redirect_url = f"{reverse('transactions:add')}?s=1"
+            return HttpResponseRedirect(redirect_url)
         
         else:
-            return HttpResponse('Todo - Error adding transaction')
+            return render(request, 'transactions/500.html', status=500)
 
 def view(request):
         
@@ -42,8 +51,6 @@ def view(request):
             # Query model for transactions matching filter
             results = Transaction.objects.filter(date__gte=start_date, date__lte=end_date)
 
-            print(results[0].id)
-            print(results[0].date)
 
             return render(request, 'transactions/results.html', {
                 'results': results
