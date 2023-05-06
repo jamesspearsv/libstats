@@ -18,6 +18,16 @@
             <a href="{% url 'transactions:view' %}" class="nav-link">View</a>
             <a href="{% url 'transactions:reports' %}" class="nav-link">Reports</a>
     </nav>
+    {% if alert == True %}
+
+    <div class="alert alert-dark alert-dismissible fade show" id="alert" role="alert">
+        <strong>Success!</strong> Transaction recorded successfully
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    {% endif %}
     <main>
         {% block body %}
         {% endblock %}

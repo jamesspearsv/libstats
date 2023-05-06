@@ -18,8 +18,7 @@ Initial deployment of app was on 4/21/2023
 - [x] Adjust view function to return list of transactions at all locations in specified date 
 range
 - [x] Configure error and 404 pages
-- [ ] Implement user sessions
-- [ ] Implement user authentication and functions
+- [ ] Implement user sessions for admin dashboard
 
 ## Front End Tasks
 
@@ -28,5 +27,8 @@ range
 - [x] Style forms and add lable where needed
 - [x] Style transaction results table
 - [x] Implment CSV export and download function
-- [ ] Add bootstrap error and success banners
-- [ ] Style mobile view of app to better fit smaller screens.
+- [x] Add bootstrap error and success banners
+---
+# Bugs
+- [ ] transactions/views.py (view): Attempting to view a range of dates without any transactions returns and empty set of results. Should return a view that state this for to the user.
+- [ ] transactions/views.py (view): User can attempt to qurey a range of dates with an end date prior to the given start date. Should return an error to the user.

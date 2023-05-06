@@ -1,3 +1,6 @@
+// This code was found by reading a Geeks for Geeks article
+// https://www.geeksforgeeks.org/how-to-export-html-table-to-csv-using-javascript/
+
 function tableToCSV() {
  
     // Variable to store the final csv data

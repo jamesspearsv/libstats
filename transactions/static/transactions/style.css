@@ -1,5 +1,6 @@
 body {
     background-color: #e9e9e9;
+    
 }
 
 #nav {
@@ -16,6 +17,10 @@ body {
     text-decoration: underline;
 }
 
+#alert {
+    margin: 10px;
+}
+
 main {
     width: 80%;
     margin: auto;
@@ -30,8 +35,13 @@ main {
     padding: 2%;
 }
 
+#export {
+    width: fit-content;
+    margin: auto;
+}
+
 form {
-    width: 30%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     margin: auto;
