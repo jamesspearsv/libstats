@@ -13,3 +13,7 @@ reference.sock
 
 # Ignore static files
 static/
+
+# Ignore __pycache__
+reference/__pycache__/*
+transactions/__pycache__/*
