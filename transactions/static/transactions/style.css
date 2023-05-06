@@ -41,7 +41,7 @@ main {
 }
 
 form {
-    width: 40%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     margin: auto;

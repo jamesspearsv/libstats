@@ -15,5 +15,5 @@ reference.sock
 static/
 
 # Ignore __pycache__
-reference/__pycache__/*
-transactions/__pycache__/*
+reference/__pycache__/*.pyc
+transactions/__pycache__/*.pyc
