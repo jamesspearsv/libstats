@@ -18,7 +18,7 @@ Initial deployment of app was on 4/21/2023
 - [x] Adjust view function to return list of transactions at all locations in specified date 
 range
 - [x] Configure error and 404 pages
-- [ ] Code cleanup: write decorator function to parse error and success alerts and return alert banners to user.
+- [x] Code cleanup: write decorator function to parse error and success alerts and return alert banners to user.
 - [ ] Implement user sessions for admin dashboard
 
 ## Front End Tasks

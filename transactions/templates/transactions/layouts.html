@@ -18,10 +18,10 @@
             <a href="{% url 'transactions:view' %}" class="nav-link">View</a>
             <a href="{% url 'transactions:reports' %}" class="nav-link">Reports</a>
     </nav>
-    {% if alert %}
+    {% if alert.status %}
 
-    <div class="alert alert-{{ type }} alert-dismissible fade show" id="alert" role="alert">
-        {{ message | safe }}
+    <div class="alert alert-{{ alert.type }} alert-dismissible fade show" id="alert" role="alert">
+        {{ alert.content | safe }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
