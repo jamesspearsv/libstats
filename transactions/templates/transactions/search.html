@@ -8,14 +8,15 @@ View Transactions
 <section class="page-header">
     <h1>View Recorded Transaction Log</h1>
 </section>
-
-<form action="{% url 'transactions:view' %}" method="post">
-    {% csrf_token %}
+<section class="card form-card">
+    <form action="{% url 'transactions:view' %}" method="post">
+        {% csrf_token %}
         <label for="start_date">Start Date:</label>
         <input type="date" name="start_date" id="start_date">
         <label for="end_date">End Date:</label>
         <input type="date" name="end_date" id="end_date">
         <input type="submit" value="Search Transactions" class="btn btn-primary">
-</form>
+    </form>
+</section>
 
 {% endblock %}

@@ -8,11 +8,12 @@ Record Transaction
 <section class="page-header">
     <h1>Add New Reference Transactions</h1>
 </section>
-
-<form action="{% url 'transactions:add' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit & Clear" class="btn btn-primary">
-</form>
+<section class="card form-card">
+    <form action="{% url 'transactions:add' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit & Clear" class="btn btn-primary">
+    </form>
+</section>
 
 {% endblock %}

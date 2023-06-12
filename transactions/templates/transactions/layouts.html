@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="{% static 'transactions/favicon1.svg' %}" type="image/x-icon">
 </head>
 <body>
-    <nav class="nav" id="nav">
+    <nav class="nav sticky-top" id="nav">
             <a href="{% url 'transactions:index' %}" class="nav-link">Home</a>
             <a href="{% url 'transactions:add' %}" class="nav-link">Record</a>
             <a href="{% url 'transactions:view' %}" class="nav-link">View</a>
