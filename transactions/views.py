@@ -4,11 +4,18 @@ from django.urls import reverse
 from .app_forms.forms import AddForm
 from .models import Transaction
 from .util import alerts
+from datetime import datetime
 
 
 # Create your views here.
 def index(request):
-    return render(request, 'transactions/index.html')
+
+    # Count total # of recorded transactions in current month and year
+    monthlyTransactionCount = Transaction.objects.filter(date__year=datetime.now().year, date__month=datetime.now().month).count()
+
+    return render(request, 'transactions/index.html', {
+        'count': monthlyTransactionCount,
+    })
 
 def add(request):
     if request.method == 'GET':
@@ -79,7 +86,8 @@ def reports(request):
             end_date =  request.POST['end_date'] #YYYY-MM-DD
             form_location = request.POST['location']
 
-            # Model: choices[choice][(value, label)]
+            # Model: choices[choice][(choice_value, choice_label)]
+            # Model: 0 == value, 1 == label
             
             type_report_data = {}
             format_report_data = {}

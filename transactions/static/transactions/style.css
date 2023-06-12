@@ -61,7 +61,8 @@ thead {
     color: #ffffff;
 }
 
-#empty {
+#empty-log, .report-heading {
     text-align: center;
     margin-top: 5%;
 }
+

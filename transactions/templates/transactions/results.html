@@ -10,8 +10,8 @@ View Logs
         <h1>View Transactions</h1>
         <p>{{ start_date }} to {{ end_date }}</p>
     </section>
-    
     {% if results %}
+    
     <div id="export">
         <button class="btn btn-primary" id="downloadbutton">Export as CSV</button>
     </div>
@@ -39,7 +39,7 @@ View Logs
     </table>
     {% else %}
     <hr>
-    <div id="empty">
+    <div id="empty-log">
         <h2>There's nothing to see here...</h2>
         <p>Looks like there were not any trancations recorded during these days.</p>
     </div>

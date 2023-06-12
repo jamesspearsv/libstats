@@ -4,15 +4,15 @@ def alerts(request):
              'content': ''}
     
     error_content = ['<strong>Error:</strong> Please complete the form.',
-                     '<strong>Error:</strong> Please submit a valid start date and end date range.', '<strong>Error:</strong> Invalid data.']
+                     '<strong>Error:</strong> Please submit a valid start date and end date range.',
+                     '<strong>Error:</strong> Invalid data.']
 
     success_content = ['<strong>Success!</strong> Transaction recorded successfully']
     
     params = request.GET
 
-    # Test if request has params
+    # if request has params
     if params:
-        print('PARAM')
         alert['status'] = True
         
         # if param == success
@@ -26,7 +26,6 @@ def alerts(request):
 
         return alert
 
-    # elif request !has params
+    # elif request has no params
     elif not params:
-        print('NO PARAM')
         return alert
