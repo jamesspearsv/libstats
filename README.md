@@ -30,11 +30,13 @@ range
 - [x] Implment CSV export and download function
 - [x] Add bootstrap error and success banners
 - [x] Implement more robust alert and message system. Currently alerts are enabled only for adding transactions. Should be programmatic for all pages with the ability to send different messages.
-- ### Home Page Items
+
+### Home Page Items
 - [ ] Quick start / How to use this tool
-- [ ] Reference type definitions
-- [ ] Live monthly transaction counter
-- [ ] Style index page components and layout
+- [x] Reference type definitions
+- [x] Live monthly transaction counter
+- [ *in progress* ] Style index page components and layout
+
 # Bugs
 
 - [x] transactions/views.py (view): Attempting to view a range of dates without any transactions returns and empty set of results. Should return a view that state this for to the user.

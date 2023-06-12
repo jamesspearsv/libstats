@@ -8,9 +8,9 @@ Generate Reports
 <section class="page-header">
     <h1>Generate Reports</h1>
 </section>
-
-<form action="{% url 'transactions:reports' %}" method="post">
-    {% csrf_token %}
+<section class="card form-card">
+    <form action="{% url 'transactions:reports' %}" method="post">
+        {% csrf_token %}
         <label for="start_date">Start Date:</label>
         <input type="date" name="start_date" id="start_date">
         <label for="end_date">End Date:</label>
@@ -18,10 +18,11 @@ Generate Reports
         <label for="location">Location:</label>
         <select name="location" id="location">
             {% for choice in choices %}
-                <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+            <option value="{{ choice.0 }}">{{ choice.1 }}</option>
             {% endfor %}
         </select>
         <input type="submit" value="Generate Report" class="btn btn-primary">
-</form>
+    </form>
+</section>
 
 {% endblock %}

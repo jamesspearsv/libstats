@@ -9,14 +9,53 @@ Reference Home
     <h1>MPL Reference Statistics</h1>
 </section>
 <hr>
-<section id="index_counter">
-    <h4>Total Monthly Transactions:</h4>
-    <p>{{ count }}</p>
+<div id="index-container">
+    <section id="index-quickstart" class="index-section">
+        <h4 class="index-section-head">Quick Start Guide</h4>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis quasi odit, consequatur dolores labore temporibus fugiat ad voluptatum ipsam rerum earum tempora optio veniam eveniet eum sapiente aspernatur nam expedita!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ad repellat accusantium distinctio at tenetur beatae sapiente ducimus excepturi. Ullam quos odit ab nihil alias quas placeat id esse sint.</p>
+    </section>
+        <section id="index-counter" class="index-section">
+        <div class="card counter-card" id="index-counter">
+            <p class="card-head">Questions Answered This Month</p>
+            <p id="index-count">{{ count }}</p>
+        </div>
+    </section>
+    <section id="index-definitions" class="index-section">
+        <hr>
+        <h4 class="index-section-head">Reference Transactions Types</h4>
+        <div id="index-definition-cards">
+            <div class="card definition-card">
+                <p class="card-head">Directional</p>
+                <hr>
+                <p>Simple questions about facilities, hours, etc.</p>
+                <p>For example: What time do you close? Where are the restrooms? Etc.</p>
+            </div>
+            <div class="card definition-card">
+                <p class="card-head">Information Services</p>
+                <hr>
+            <p>General reference questions and questions about library cards or services.</p>
+            <p>For example: What are Kroger’s hours? How can I renew my card?</p>
+        </div>
+        <div class="card definition-card">
+            <p class="card-head">Digital Resources</p>
+            <hr>
+            <p>Questions about accessing and using MPL digital resources.</p>
+            <p>For example: How do I use Libby and Hoopla? What is LawDepot? Can I use Ancestery at home?</p>
+        </div>
+        <div class="card definition-card">
+            <p class="card-head">Known-Item Requests</p>
+            <hr>
+            <p>Patron request for specific items (known-items)</p>
+            <p>For example: Do you have <em>The Martian</em> by Andy Weir? Can I place a hold on this book?</p>
+        </div>
+        <div class="card definition-card">
+            <p class="card-head">Technology Help</p>
+            <hr>
+            <p>Requests for help using public computers or other tech questions</p>
+            <p>For example: Can you help me print this document? Can you help me complete this application?</p>
+        </div>
+    </div>
 </section>
-<section id="index_quickstart">
-    <h4>TODO: Quick Start Guide</h4>
-</section>
-<section id="index_definitions">
-    <h4>TODO: Reference Transactions Type Definitions</h4>
-</section>
+</div>
 {% endblock %}
