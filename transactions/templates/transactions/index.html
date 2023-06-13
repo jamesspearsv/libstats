@@ -1,29 +1,43 @@
 {% extends 'transactions/layouts.html' %}
 
 {% block title %}
-Reference Home
+MPL LibStats
 {% endblock %}
 
 {% block body %}
 <section class="page-header">
-    <h1>MPL Reference Statistics</h1>
+    <h1>MPL LibStats</h1>
+    <p>Reference Statistics Collection</p>
 </section>
 <hr>
 <div id="index-container">
     <section id="index-quickstart" class="index-section">
-        <h4 class="index-section-head">Quick Start Guide</h4>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis quasi odit, consequatur dolores labore temporibus fugiat ad voluptatum ipsam rerum earum tempora optio veniam eveniet eum sapiente aspernatur nam expedita!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ad repellat accusantium distinctio at tenetur beatae sapiente ducimus excepturi. Ullam quos odit ab nihil alias quas placeat id esse sint.</p>
+        <h3 class="index-section-head">Quick Start Guide</h3>
+        <p>
+            LibStats is a simple app that allows you to record, view, and generate reports about reference transactions that are completed in the library. You can access the app’s three functions by clicking the links in the menu bar above. 
+A quick reference about reference transaction types is below if you need to refresh your memory from time to time. If you have any questions, please let your supervisor know.
+        </p>
+        <h4 class="index-section-head">Functions</h4>
+        <ul id="function-list">
+            <li>
+                Record: This is the main LibStats function. Use this function to record and add new reference transactions when you answer patron questions. Recorded transactions will be added to the transaction log for later viewing and reporting.</li>
+            <li>
+                View: This function lets you review the recorded transaction log between a specified date range. This function also allows a portion of the full transaction log to be exported as a CSV.
+            </li>
+            <li>
+                Reports: This function lets you generate reference report based on a specified date range and a specific location (e.g. Circulation, Reference, or Children’s).
+            </li>
+        </ul>
     </section>
         <section id="index-counter" class="index-section">
         <div class="card counter-card" id="index-counter">
             <p class="card-head">Questions Answered This Month</p>
-            <p id="index-count">{{ count }}</p>
+            <p id="index-count">{{ count }} questions</p>
         </div>
     </section>
     <section id="index-definitions" class="index-section">
         <hr>
-        <h4 class="index-section-head">Reference Transactions Types</h4>
+        <h3 class="index-section-head">Reference Transactions Types</h3>
         <div id="index-definition-cards">
             <div class="card definition-card">
                 <p class="card-head">Directional</p>

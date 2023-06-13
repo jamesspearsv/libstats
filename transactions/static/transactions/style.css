@@ -5,7 +5,6 @@ body {
 #nav {
     background-color: #185c36;
     padding: 10px;
-    margin: auto;
 }
 
 #nav > a {
@@ -21,9 +20,8 @@ body {
 }
 
 main {
-    width: 80%;
+    max-width: 1100px;
     margin: auto;
-    padding: 5%;
 }
 
 .page-header {
@@ -77,6 +75,7 @@ thead {
 #index-quickstart {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
+    text-align: justify;
 }
 
 #index-counter {
@@ -116,8 +115,7 @@ thead {
 
 .counter-card {
     width: 75%;
-    height: 75%;
-    padding: 3%;
+    padding: 10%;
     margin: auto;
     
 }
@@ -125,4 +123,8 @@ thead {
 .form-card {
     width: 30%;
     margin: auto;
+}
+
+#function-list > li {
+    margin-top: 2%;
 }
