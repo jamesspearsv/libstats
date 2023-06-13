@@ -16,7 +16,7 @@ import json
 
 # Set app running mode
 # MODE == "DEV" OR "PROD"
-MODE = 'DEV'
+MODE = 'PROD'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -25,15 +25,17 @@ if MODE == 'PROD': # Use PROD mode for running on production server
         config = json.load(config_file)
 
     DEBUG = False
-    ALLOWED_HOSTS = ['.libstats.work', '.jspears.me', '10.24.20.104']
-    CSRF_TRUSTED_ORIGINS = ['https://ref.libstats.work', 'https://ref.jspears.me','http://10.24.20.104']
+    ALLOWED_HOSTS = ['ref.libstats.work']
+    CSRF_TRUSTED_ORIGINS = ['https://ref.libstats.work']
     #SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECRET_KEY = config['SECRET_KEY']
+    ALLOWED_IPS = config['ALLOWED_IPS']
 
 if MODE == 'DEV': # Use DEV mode for running on local development machine
     DEBUG = True
     ALLOWED_HOSTS = ['*']
     SECRET_KEY = 'django-insecure-g13pdog#2ebma&r_vr=4&#d_2u3=#8n1e304zio$6!zr&m87df'
+    ALLOWED_IPS = ['*']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

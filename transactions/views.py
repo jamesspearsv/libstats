@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseServerError
 from django.urls import reverse
@@ -10,14 +11,11 @@ from datetime import datetime
 # Create your views here.
 def index(request):
 
-    ALLOWED_IPS = ['10.24.20.210']
-
     # Count total # of recorded transactions in current month and year
     monthlyTransactionCount = Transaction.objects.filter(date__year=datetime.now().year, date__month=datetime.now().month).count()
 
-    # Testing IP Authentication. Could be moved into a decorator function
-    print(request.META.get('HTTP_X_FORWARDED_FOR'))
-    print(request.META.get('REMOTE_ADDR'))
+    # Testing IP Authentication. To be moved to decorator or django middleware function with more robust functionality
+    ALLOWED_IPS = settings.ALLOWED_IPS
     user_ip = request.META.get('HTTP_X_FORWARDED_FOR')
     if user_ip:
         ip = user_ip.split(',')[0]
@@ -25,11 +23,11 @@ def index(request):
         ip = request.META.get('REMOTE_ADDR')
 
     if ip not in ALLOWED_IPS:
-        return HttpResponse('403: NOT ALLOWED')
+        return HttpResponse('403 Forbidden')
+    # End IP Authentication Testing Block
 
     return render(request, 'transactions/index.html', {
         'count': monthlyTransactionCount,
-        'ip': ip
     })
 
 def add(request):
