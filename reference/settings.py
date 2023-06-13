@@ -16,7 +16,7 @@ import json
 
 # Set app running mode
 # MODE == "DEV" OR "PROD"
-MODE = 'DEV'
+MODE = 'PROD'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: keep the secret key used in production secret!
