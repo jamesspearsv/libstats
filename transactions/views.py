@@ -2,7 +2,7 @@ from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseServerError
 from django.urls import reverse
-from .app_forms.forms import AddForm
+from .forms import AddForm
 from .models import Transaction
 from .util import alerts
 from datetime import datetime
@@ -13,18 +13,6 @@ def index(request):
 
     # Count total # of recorded transactions in current month and year
     monthlyTransactionCount = Transaction.objects.filter(date__year=datetime.now().year, date__month=datetime.now().month).count()
-
-    # Testing IP Authentication. To be moved to decorator or django middleware function with more robust functionality
-    ALLOWED_IPS = settings.ALLOWED_IPS
-    user_ip = request.META.get('HTTP_X_FORWARDED_FOR')
-    if user_ip:
-        ip = user_ip.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-
-    if ip not in ALLOWED_IPS:
-        return HttpResponse('403 Forbidden')
-    # End IP Authentication Testing Block
 
     return render(request, 'transactions/index.html', {
         'count': monthlyTransactionCount,
@@ -141,3 +129,6 @@ def error404(request, exception=None):
 
 def error500(request, exception=None):
     return render(request, 'transactions/500.html', status=500)
+
+def error403(request, exception=None):
+    return render(request, 'transactions/403.html', status=403)
