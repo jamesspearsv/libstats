@@ -15,14 +15,13 @@ class IPAuth:
         # Code to be executed for each request/response after
         # the view is called.
 
-        ALLOWED_IPS = settings.ALLOWED_IPS
         user_ip = request.META.get('HTTP_X_FORWARDED_FOR')
         if user_ip:
             ip = user_ip.split(',')[0]
         else:
             ip = request.META.get('REMOTE_ADDR')
 
-        if ip not in ALLOWED_IPS:
+        if ip not in settings.ALLOWED_IPS:
             raise PermissionDenied('Not allowed')
 
         return response

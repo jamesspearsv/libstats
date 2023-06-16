@@ -26,5 +26,6 @@ urlpatterns = [
 
 handler404 = 'transactions.views.error404'
 handler500 = 'transactions.views.error500'
+handler403 = 'transactions.views.error403'
 
 #urlpatterns += staticfiles_urlpatterns()

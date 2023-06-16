@@ -1,6 +1,5 @@
-from django.conf import settings
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponseServerError
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from .forms import AddForm
 from .models import Transaction
@@ -123,7 +122,8 @@ def reports(request):
             'choices': Transaction.location_choices,
             'alert': alert
         })
-    
+
+# Error handeling views   
 def error404(request, exception=None):
     return render(request, 'transactions/404.html', status=404)
 
