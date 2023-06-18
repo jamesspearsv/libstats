@@ -1,43 +1,23 @@
-# Reference Stats Todo List
+# MPL LibStats
 
-This is a personal project to create a reference transaction statics app for use in a public library. Similar to a clone of SpringShare's LibAnswers modules.
+## Introduction
 
-Initial deployment of app was on 4/21/2023
----
-# TODO Lists & Bugs
+MPL LibStats is a simple web app build using Django/Python, HTML, CSS, and Javascript that helps library staff record, track, and report references interactions with library patrons. This app is a basic clone of the LibAnswers module from SpringShare's LibApps cloud platform. The goal of this project was to create a similar yet simplier tool for use in a library setting. Because of the overall goal to make this project as simple as possible, the app lacks some of the detailed recording and reporting abilities present in other reference statictics collection software in exchange for meeting the specific and most important needs of my library. This project could be extended to meet future needs or the specific needs of other libraries. With some basic technical know-how, and the ability to follow online instruction, this app is simple and lightweight enough to deploy on a locally hosted server, like a Raspberry Pi, using a WSGI and Http proxy server like Gunicorn and Nginx.
 
-## Back End Tasks
+## Functions
 
-- [x] Set up initial Django project and apps
-- [x] Create database model(s)
-- [x] Set up Admin interface
-- [x] Create model form in view
-- [x] Add ability to update model from front-end
-- [x] Implement front-end model read function
-- [x] Add reports function: return count of transactions by type and format for each location and specified dates
-- [x] Adjust view function to return list of transactions at all locations in specified date 
-range
-- [x] Configure error and 404 pages
-- [x] Code cleanup: write decorator function to parse error and success alerts and return alert banners to user.
-- [ ] Implement user sessions for admin dashboard
+LibStats currently includes three basic fuctions:
 
-## Front End Tasks
+- Recording reference interactions
+- Viewing a log of previously recorded reference interactions
+- Generating reports for recorded reference interactions
 
-- [x] Style page layout
-- [x] Create site navigation
-- [x] Style forms and add lable where needed
-- [x] Style transaction results table
-- [x] Implment CSV export and download function
-- [x] Add bootstrap error and success banners
-- [x] Implement more robust alert and message system. Currently alerts are enabled only for adding transactions. Should be programmatic for all pages with the ability to send different messages.
+### Record
 
-### Home Page Items
-- [ ] Quick start / How to use this tool
-- [x] Reference type definitions
-- [x] Live monthly transaction counter
-- [ *in progress* ] Style index page components and layout
+### View
 
-# Bugs
+### Report
 
-- [x] transactions/views.py (view): Attempting to view a range of dates without any transactions returns and empty set of results. Should return a view that state this for to the user.
-- [x] transactions/views.py (view): User can attempt to qurey a range of dates with an end date prior to the given start date. Should return an error to the user.
+
+
+## Security
