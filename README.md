@@ -12,6 +12,8 @@ LibStats currently includes three basic fuctions:
 - Viewing a log of previously recorded reference interactions
 - Generating reports for recorded reference interactions
 
+Each of the above funcitons is accessed through the app's views.py file.
+
 ### Record
 
 This is the main function that library staff will interact with. Using this funciton, staff complete a form that included various date that is collected to represent a reference interaction with patron. When this form is submitted, a new transactions is appended to the app's database.
@@ -26,4 +28,4 @@ The reporting function allows staff who collect and report statistics to generat
 
 ## Security
 
-LibStats includes basic IP filtering to prevent unwanted users from accessing and recording bogus reference transactions. IP authentication was written using a custom middleware for Django and allowed IP are access be reading a local configuration file that is stored on the hosting server.
+LibStats includes basic IP filtering to prevent unwanted users from accessing and recording bogus reference transactions. IP authentication is written using a custom middleware for Django and allowed IP are access be reading a local configuration file that is stored on the hosting server and accessed by importing this data into the project's settings.py file.
