@@ -1,4 +1,5 @@
 {% extends 'transactions/layouts.html' %}
+{% load static %}
 
 {% block title %}
 MPL LibStats
@@ -32,7 +33,7 @@ A quick reference about reference transaction types is below if you need to refr
         <section id="index-counter" class="index-section">
         <div class="card counter-card" id="index-counter">
             <p class="card-head">Questions Answered This Month</p>
-            <p id="index-count">{{ count }} questions</p>
+            <p id="index-count"><div id="count-data">{{ count }}</div> questions</p>
         </div>
     </section>
     <section id="index-definitions" class="index-section">
@@ -71,5 +72,7 @@ A quick reference about reference transaction types is below if you need to refr
         </div>
     </div>
 </section>
+<div id="counterapi-url" data-apiurl="{% url 'transactions:counterapi' %}" style="display: none;"></div>
 </div>
+<script src="{% static 'transactions/counter.js' %}"></script>
 {% endblock %}

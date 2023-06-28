@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from .forms import AddForm
 from .models import Transaction
@@ -16,6 +16,12 @@ def index(request):
     return render(request, 'transactions/index.html', {
         'count': monthlyTransactionCount,
     })
+
+def counterapi(request):
+    # Count total # of recorded transactions in current month and year
+    monthlyTransactionCount = Transaction.objects.filter(date__year=datetime.now().year, date__month=datetime.now().month).count()
+
+    return JsonResponse({'monthlyTransactionCount': monthlyTransactionCount})
 
 def add(request):
     if request.method == 'GET':
