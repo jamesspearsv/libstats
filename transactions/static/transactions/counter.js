@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    count = document.querySelector('#count-data')
-    counterapiurl = document.querySelector('#counterapi-url').dataset.apiurl
-    console.log(counterapiurl)
-    
+ 
     // fetch latest transaction count from server.
     function fetchUpdates() {
+        // Select correct DOM element and get api url
+        count = document.querySelector('#count-data')
+        counterapiurl = document.querySelector('#counterapi-url').dataset.apiurl
+
         fetch(counterapiurl)
         .then(response => response.json())
         .then(data => {
@@ -15,5 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-    setInterval(fetchUpdates, 10000)
+    // set onclick action of refresh button
+    document.querySelector('#refresh-button').onclick = fetchUpdates
+    
 }) 
