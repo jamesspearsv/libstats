@@ -12,7 +12,7 @@ reference.sock
 .reference.sock*
 
 # Ignore static files. Generate using Djano-Admin collectstatic command
-.static/
+static/
 
 # Ignore __pycache__
 reference/__pycache__/*.pyc
