@@ -5,9 +5,55 @@ MPL LibStats: Record
 {% endblock %}
 
 {% block body %}
+<script>
+    function overlayOff () {
+        document.getElementById("overlay").style.display = "none";
+    }
+
+    function overlayOn () {
+        document.getElementById("overlay").style.display = "block";
+    }
+
+</script>
 <div id="overlay">
-    <div id="overlay-definitions">
-        Hellow World
+    <div id="overlay-content">
+            <div id="overlay-header">
+                <h2>Reference Transaction Types</h2>
+                <button class="btn btn-danger" onclick="overlayOff()">X</button>
+            </div>
+            <hr>
+            <div id="overlay-definitions">
+                <div class="card">
+                    <p class="card-head">Directional</p>
+                    <hr>
+                    <p>Simple questions about facilities, hours, etc.</p>
+                    <p>For example: What time do you close? Where are the restrooms? Etc.</p>
+                </div>
+                <div class="card">
+                    <p class="card-head">Information Services</p>
+                    <hr>
+                <p>General reference questions and questions about library cards or services.</p>
+                <p>For example: What are Kroger’s hours? How can I renew my card?</p>
+            </div>
+            <div class="card">
+                <p class="card-head">Digital Resources</p>
+                <hr>
+                <p>Questions about accessing and using MPL digital resources.</p>
+                <p>For example: How do I use Libby and Hoopla? What is LawDepot? Can I use Ancestery at home?</p>
+            </div>
+            <div class="card">
+                <p class="card-head">Known-Item Requests</p>
+                <hr>
+                <p>Patron request for specific items (known-items)</p>
+                <p>For example: Do you have <em>The Martian</em> by Andy Weir? Can I place a hold on this book?</p>
+            </div>
+            <div class="card">
+                <p class="card-head">Technology Help</p>
+                <hr>
+                <p>Requests for help using public computers or other tech questions</p>
+                <p>For example: Can you help me print this document? Can you help me complete this application?</p>
+            </div>
+            </div>
     </div>
 </div>
 <section class="page-header">
@@ -20,5 +66,8 @@ MPL LibStats: Record
         <input type="submit" value="Submit & Clear" class="btn btn-primary">
     </form>
 </section>
+<secton id="help-button">
+    <button class="btn btn-primary" onclick="overlayOn()">Need Help?</button>
+</secton>
 
 {% endblock %}
