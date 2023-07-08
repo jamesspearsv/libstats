@@ -1,27 +1,17 @@
 {% extends 'transactions/layouts.html' %}
+{% load static %}
 
 {% block title %}
 MPL LibStats: Record
 {% endblock %}
 
 {% block body %}
-<script>
-    function overlayOff () {
-        document.getElementById("overlay").style.display = "none";
-    }
-
-    function overlayOn () {
-        document.getElementById("overlay").style.display = "block";
-    }
-
-</script>
-<div id="overlay">
+<div id="overlay" style="display: none;">
     <div id="overlay-content">
             <div id="overlay-header">
                 <h2>Reference Transaction Types</h2>
-                <button class="btn btn-danger" onclick="overlayOff()">X</button>
+                <button class="btn btn-danger overlay-button">X</button>
             </div>
-            <hr>
             <div id="overlay-definitions">
                 <div class="card">
                     <p class="card-head">Directional</p>
@@ -67,7 +57,7 @@ MPL LibStats: Record
     </form>
 </section>
 <secton id="help-button">
-    <button class="btn btn-primary" onclick="overlayOn()">Need Help?</button>
+    <button class="btn btn-primary overlay-button">Need Help?</button>
 </secton>
-
+<script src="{% static 'transactions/overlay.js' %}"></script>
 {% endblock %}

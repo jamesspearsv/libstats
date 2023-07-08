@@ -148,7 +148,6 @@ thead {
     left: 0;
     margin-top: 60px;
     background-color: rgba(0,0,0,0.7);
-    display: none;
 }
 
 #overlay-content {
@@ -163,16 +162,13 @@ thead {
 
 #overlay-header {
     display: flex;
-    justify-content: start;
-}
-
-#overlay-header > h2 {
-    text-align: center;
+    justify-content: space-between;
     padding: 2%;
 }
 
 #overlay-header > button {
-    margin: 2%;
+    height: 46px;
+    width: 46px;
 }
 
 #overlay-definitions {
@@ -183,4 +179,10 @@ thead {
 
 #overlay-definitions > div {
     width: 25%;
+}
+
+#help-button {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
 }
