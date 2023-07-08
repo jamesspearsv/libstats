@@ -22,7 +22,6 @@ body {
 main {
     max-width: 1100px;
     margin: auto;
-    padding: 2%;
 }
 
 .page-header {
@@ -115,6 +114,7 @@ thead {
 
 .card-head {
     font-weight: bold;
+    margin-bottom: 0;
 }
 
 .definition-card {
@@ -135,4 +135,54 @@ thead {
 
 #function-list > li {
     margin-top: 2%;
+}
+
+#overlay {
+    height: 100%;
+    width: 100vw;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin-top: 60px;
+    background-color: rgba(0,0,0,0.7);
+}
+
+#overlay-content {
+    margin: 5%;
+    width: 80%;
+    margin: auto;
+    background-color: #e9e9e9;
+    margin-top: 5%;
+    border-radius: 10px;
+    
+}
+
+#overlay-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+#overlay-header > button {
+    height: 46px;
+    width: 46px;
+}
+
+#overlay-definitions {
+    display: flex;
+    padding: 2%;
+    padding-top: 0;
+}
+
+#overlay-definitions > div {
+    width: 25%;
+}
+
+#help-button {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
 }
