@@ -169,6 +169,9 @@ thead {
 #overlay-header > button {
     height: 46px;
     width: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #overlay-definitions {
