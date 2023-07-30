@@ -137,6 +137,10 @@ thead {
     margin-top: 2%;
 }
 
+.disabled {
+    display: none;
+}
+
 #overlay {
     height: 100%;
     width: 100vw;
@@ -149,6 +153,7 @@ thead {
     margin-top: 60px;
     background-color: rgba(0,0,0,0.7);
 }
+
 
 #overlay-content {
     margin: 5%;
