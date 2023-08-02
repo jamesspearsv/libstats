@@ -25,7 +25,7 @@ if MODE == 'PROD': # Use PROD mode for running on production server
         config = json.load(config_file)
 
     DEBUG = False
-    ALLOWED_HOSTS = ['app.jspears.me', '192.168.110.5']
+    ALLOWED_HOSTS = ['app.libstats.work', '192.168.110.5']
     CSRF_TRUSTED_ORIGINS = ['https://app.jspears.me', 'http://192.168.110.5']
     #SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECRET_KEY = config['SECRET_KEY']
