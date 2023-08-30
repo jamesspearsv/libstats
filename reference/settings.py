@@ -25,11 +25,9 @@ if MODE == 'PROD': # Use PROD mode for running on production server
         config = json.load(config_file)
 
     DEBUG = False
-    ALLOWED_HOSTS = ['app.libstats.work', '192.168.110.5']
-    CSRF_TRUSTED_ORIGINS = ['https://app.libstats.work', 'http://192.168.110.5']
-    #SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    ALLOWED_HOSTS = config['ALLOWED_HOSTS']
+    CSRF_TRUSTED_ORIGINS = config['CSRF_TRUSTED_ORIGINS']
     SECRET_KEY = config['SECRET_KEY']
-    #ALLOWED_IPS = config['ALLOWED_IPS']
 
 if MODE == 'DEV': # Use DEV mode for running on local development machine
     DEBUG = True
