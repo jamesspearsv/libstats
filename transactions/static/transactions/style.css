@@ -17,6 +17,7 @@ body {
 
 #alert {
     margin: 10px;
+    transition: opacity 300ms linear;
 }
 
 main {
