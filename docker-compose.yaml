@@ -7,12 +7,26 @@
 # You can add other services your application may depend on here, such as a
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
-version: "3"
+version: "3.8"
 
 services:
-  libstats:
+  libstats_gunicorn:
+    volumes:
+      - static:/app/static
+      - ./data/db.sqlite3:/app/db.sqlite3
+      - ./data/libstats-config.json:/libstats-config.json
     build:
       context: .
-    command: gunicorn --workers 3 --workers 3 --bind unix:libstats.sock -m 007 reference.wsgi
     ports:
-      - 8000:8000
+      - "8000:8000"
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/static
+    ports:
+      - "80:80"
+    depends_on:
+      - libstats_gunicorn
+
+volumes:
+  static:

@@ -16,12 +16,10 @@ import json
 
 # Set app running mode
 # MODE == "DEV" OR "PROD"
-MODE = 'DEV'
+MODE = 'PROD'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# SECURITY WARNING: keep the secret key used in production secret!
 if MODE == 'PROD': # Use PROD mode for running on production server
-    with open('/etc/libstats-config.json') as config_file:
+    with open('/libstats-config.json') as config_file:
         config = json.load(config_file)
 
     DEBUG = False
@@ -31,8 +29,8 @@ if MODE == 'PROD': # Use PROD mode for running on production server
 
 if MODE == 'DEV': # Use DEV mode for running on local development machine
     DEBUG = True
-    ALLOWED_HOSTS = ['*']
-    SECRET_KEY = 'django-insecure-g13pdog#2ebma&r_vr=4&#d_2u3=#8n1e304zio$6!zr&m87df'
+    ALLOWED_HOSTS = ["*"]
+    SECRET_KEY = 'super_secret_key'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
