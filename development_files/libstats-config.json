@@ -1,5 +1,6 @@
 {
-  "ALLOWED_HOSTS": "*",
-  "SECRET_KEY": "THISISASECRETKEY",
-  "CSRF_TRUSTED_ORIGINS": "*"
+  "__comment__": "This is an example of the config JSON used by libstats",
+  "ALLOWED_HOSTS": ["*"],
+  "SECRET_KEY": "MAKE_SURE_TO_SET_A_SECRET_KEY",
+  "CSRF_TRUSTED_ORIGINS": ["http://HOST_SERVER"]
 }
