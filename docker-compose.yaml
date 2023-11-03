@@ -24,7 +24,7 @@ services:
     volumes:
       - static:/static
     ports:
-      - "80:80"
+      - "8090:80"
     depends_on:
       - libstats_gunicorn
 
