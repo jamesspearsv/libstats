@@ -21,3 +21,6 @@ reference.sock
 
 # Ignore data folder
 /data/*
+
+# Dev database
+/libstats/db.sqlite3
