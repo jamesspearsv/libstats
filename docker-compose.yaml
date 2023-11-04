@@ -10,7 +10,7 @@
 version: "3.8"
 
 services:
-  libstats_gunicorn:
+  gunicorn:
     volumes:
       - static:/app/static
       - ./data/db.sqlite3:/app/db.sqlite3
@@ -26,7 +26,7 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - libstats_gunicorn
+      - gunicorn
 
 volumes:
   static:
