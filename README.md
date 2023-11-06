@@ -34,9 +34,9 @@ To complete the Docker configuration, you will need to create one directory and 
 
 ```
 {
-    "ALLOWED_HOSTS": ["ALLOWED_HOST"],
+    "ALLOWED_HOSTS": ["UPSTREAM_NGINX_SERVER", "HOST_IP"],
     "SECRET_KEY": "MAKE_SURE_TO_SET_A_SECRET_KEY",
-    "CSRF_TRUSTED_ORIGINS": ["http://HOST_SERVER"]
+    "CSRF_TRUSTED_ORIGINS": ["http://HOST_IP:NGINX_PORT"]
 }
 ```
 
