@@ -19,12 +19,14 @@ services:
       context: .
     ports:
       - "8080:8080"
+    restart: unless-stopped
   nginx:
     build: ./nginx
     volumes:
       - static:/static
     ports:
       - "8090:80"
+    restart: unless-stopped
     depends_on:
       - gunicorn
 

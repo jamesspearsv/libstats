@@ -22,7 +22,7 @@ if MODE == 'PROD': # Use PROD mode for running on production server
     with open('/libstats-config.json') as config_file:
         config = json.load(config_file)
 
-    DEBUG = False
+    DEBUG = config['DEBUG']
     ALLOWED_HOSTS = config['ALLOWED_HOSTS']
     CSRF_TRUSTED_ORIGINS = config['CSRF_TRUSTED_ORIGINS']
     SECRET_KEY = config['SECRET_KEY']
