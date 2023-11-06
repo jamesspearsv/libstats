@@ -42,6 +42,6 @@ To complete the Docker configuration, you will need to create one directory and 
 
 Both containers read and write static files to and from the _static_ volume that is created in _docker-compose.yml_. You could map this to a location in the root of the directory or other location on your system if needed. For example if you needed to build static files before running your containers and then wanted to inject them into your containers.
 
-Make sure to check that the default container ports are available on your system in _docker-compose.yml_. By default gunicorn listens on port 8080 and nginx listens on port 80. This both map to the same ports on the host system by default. Adjust them according if they are not availabe on your system. If you change the port that the gunicorn container listens on, remember to make that change in _nginx/default.conf_.
+Make sure to check that the default container ports are available on your system in _docker-compose.yml_. By default gunicorn listens on port 8080 and nginx listens on port 80. This both map to ports 8080 and 8090 on the host system by default. Adjust them according if they are not availabe on your system. If you change the port that the gunicorn container listens on, remember to make that change in _nginx/default.conf_.
 
 Once you have the correct configuration files in _data_ you can then run `docker compose up -d --build` to build the images and create the containers. Use `docker compose up` to run libstats in the foreground.
