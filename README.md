@@ -1,36 +1,56 @@
-# MPL LibStats
+# LibStats
 
-## Introduction
+## About
 
-MPL LibStats is a simple web app build using Django/Python, SQLite, HTML, CSS, and Javascript that helps library staff record, track, and report references interactions with library patrons. This app is a basic clone of the LibAnswers module from SpringShare's LibApps cloud platform. The goal of this project was to create a similar yet simplier tool for use in a library setting. Because of the overall goal to make this project as simple as possible, the app lacks some of the detailed recording and reporting abilities present in other reference statictics collection software in exchange for meeting the specific and most important needs of my library. This project could be extended to meet future needs or the specific needs of other libraries. With some basic technical know-how, and the ability to follow online instruction, this app is simple and lightweight enough to deploy on a locally hosted server, like a Raspberry Pi, using a WSGI and Http proxy server like Gunicorn and Nginx.
+MPL LibStats is a simple web app build using Python, Django, SQLite, HTML, CSS, and Javascript that helps library staff record, track, and report references interactions with library patrons. This app is a basic clone of the LibAnswers module from SpringShare's LibApps cloud platform. The goal of this project was to create a similar yet simplier tool for use in a library setting. 
 
-## Functions
+Because of the overall goal to make this project as simple as possible, the app lacks some of the detailed recording and reporting abilities present in other reference statictics collection software in exchange for meeting the specific and most important needs of my library. This project could be extended to meet future needs or the specific needs of other libraries. 
+
+With some basic technical know-how, and the ability to follow online instruction, this app is simple and lightweight enough to deploy on a locally hosted server, like a Raspberry Pi, using a WSGI and Http proxy server like Gunicorn and Nginx. This project specifically is designed to be deployed using Docker and Docker-Compose.
+
+## App Functionality
 
 LibStats currently includes three basic fuctions:
 
 - Recording reference interactions
-- Viewing a log of previously recorded reference interactions
-- Generating reports for recorded reference interactions
+- Viewing a log of previously recorded reference interactions during a specified date range
+- Generating reports for recorded reference interactions by transaction type and format during a specified date range
 
-Each of the above funcitons is accessed through the app's views.py file.
+-----
 
-### Record
+# Getting Started
 
-This is the main function that library staff will interact with. Using this funciton, staff complete a form that included various date that is collected to represent a reference interaction with patron. When this form is submitted, a new transactions is appended to the app's database.
+# Prerequisites
 
-### View
+To get started using Libstats you will need to install:
+- Python >= 3.7
+- Django 
+- Gunicorn
+- Docker
+- Docker-Compose
 
-The view function allows users view a log of recorded transactions. Users are prompted to input a desired date range and are returned a table that lists every recorded transaction during the submitted date range. This function also allows staff to export the returned table to a CSV file.
+Install these using `requirements.txt` and pip, `Pipfile` and pipenv, or other python virual envionrment tool.
 
-### Report
-
-The reporting function allows staff who collect and report statistics to generate a report based on a submitted date range. Staff are asked to provide a desired range of date and the app will return a count of transactions sorted by various types of date like transaction type and format.
 
 ## Docker Configuration
 
-Libstats has been set up to be deployed using docker and docker-compose. The _docker-compose.yml_ file creates two containers. First a gunicorn container is created to run and serve the libstats django app using gunicorn. In this container, dependencies are installed using requirements.txt. Then any database mirgations are applied and static files collected using entrypoint.sh. Second an nginx container is created to serve as a proxy server and to serve static files for libstats. The configurtion for this contianer is within _nginx_.
+Libstats has been set up to be deployed using docker and docker-compose. The `docker-compose.yml` file creates two containers. 
 
-To complete the Docker configuration, you will need to create one directory and several files. First, in the root of this project you must create a _data_ directory. This is the data directory that contains that database file and django configurtion options. With in this directory first create _db.sqlite3_. This will be the persistent database file that libstats will read from and write to by default. You can change this by editing libstats' _settings.py_ file.Next you will need to create a _libstats-config.json_ file. This file stores several configurtion option for libstats that are read by _settings.py_ An example of this file is below:
+- First a gunicorn container is created to run and serve the libstats django app using gunicorn. In this container, dependencies are installed using `requirements.txt`. Then any database mirgations are applied and static files collected using entrypoint.sh. The configuration for this container is within the project root.
+- Second an nginx container is created to serve as a proxy server and to serve static files for libstats. The configurtion for this contianer is within `nginx`.
+
+To complete the Docker configuration, you will need to create `/data` in the root of the project and two files: `db.sqlite3` and `libstats-config.json`
+
+```
+.
+├── data/
+│   ├── db.sqlite3
+│   └── libstats-config.json
+```
+
+`db.sqlite3` is the persitent database the libstats will read from and write to. Any migrations will be applied to the database by `entrypoint.sh` when the gunicorn container is created and run.
+
+`libstats-config.json` is a file stores several configurtion option for the django backend that are read by `settings.py`. An example of this file is below:
 
 ```
 {
@@ -41,8 +61,53 @@ To complete the Docker configuration, you will need to create one directory and 
 }
 ```
 
-Both containers read and write static files to and from the _static_ volume that is created in _docker-compose.yml_. You could map this to a location in the root of the directory or other location on your system if needed. For example if you needed to build static files before running your containers and then wanted to inject them into your containers.
+Both containers read and write static files to and from the `static` volume that is created in `docker-compose.yml`. You could map this to a location in the root of the directory or other location on your system if needed. For example if you needed to build static files before running your containers and then wanted to inject them into your containers.
 
-Make sure to check that the default container ports are available on your system in _docker-compose.yml_. By default gunicorn listens on port 8080 and nginx listens on port 80. This both map to ports 8080 and 8090 on the host system by default. Adjust them according if they are not availabe on your system. If you change the port that the gunicorn container listens on, remember to make that change in _nginx/default.conf_.
+Make sure to check that the default container ports are available on your system in `docker-compose.yml`. By default gunicorn listens on port 8080 and nginx listens on port 80. These are mapped to ports 8080 and 8090 on the host system by default. Adjust them according if they are not availabe on your system. If you change the port that the gunicorn container listens on, remember to make that change in `/nginx/default.conf`.
 
-Once you have the correct configuration files in _data_ you can then run `docker compose up -d --build` to build the images and create the containers. Use `docker compose up` to run libstats in the foreground.
+A completed configuration should resemble the following:
+
+```
+.
+├── data/
+│   ├── db.sqlite3
+│   └── libstats-config.json
+├── development_files/
+│   ├── dev_db.sqlite3
+│   └── dev_admin.txt
+├── libstats/
+│   ├── reference/
+│   │   └── settings.py
+│   └── transactions/
+│       ├── models.py
+│       ├── urls.py
+│       ├── util.py
+│       └── views.py
+├── nginx/
+│   ├── Dockerfile
+│   └── default.conf
+├── docker-compose.yml
+├── Dockerfile
+├── entrypoint.sh
+├── Pipfile
+├── README.md
+└── requirements.txt
+```
+
+Once you have the correct configuration files in `/data` you can then run `docker compose up -d --build` to build the images and create the containers. 
+- Use `docker compose up` to run libstats in the foreground. 
+- Use `docker compose down` to stop and remove each contain should you need to make changes to the config files.
+
+## Development Mode
+
+To place libstats into development mode, move into `/libstats` and edit `/reference/settings.py`. Change the following line form `MODE = 'PROD'` to `MODE = 'DEV'`
+
+You will need a development database in `/libstats`for the app to work in development mode. Use `python manage.py migrate` to make a new database or copy over an existing database you want to use named `db.sqlite3`.
+
+Once you have the development environment set up run the following to make any migrations and run the django dev server by using `python manage.py runserver`
+
+If you make any changes to the models make sure you remember to run `python manage.py makemigrations`
+
+Make a superuser by running `python manage.py createsuperuser`
+
+Use `python manage.py runserver 0000:8000` to access the development server on your machine's local ip at port 8000.

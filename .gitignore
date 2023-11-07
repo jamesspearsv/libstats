@@ -20,7 +20,7 @@ reference.sock
 /libstats/transactions/__pycache__/*.pyc
 
 # Ignore data folder
-/data/*
+/data
 
 # Dev database
 /libstats/db.sqlite3
