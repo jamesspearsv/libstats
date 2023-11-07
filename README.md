@@ -107,4 +107,4 @@ If you make any changes to the models make sure you remember to run `python mana
 
 Make a superuser by running `python manage.py createsuperuser`
 
-Use `python manage.py runserver 0000:8000` to access the development server on your machine's local ip at port 8000.
+Use `python manage.py runserver 0.0.0.0:8000` to access the development server on your machine's local ip at port 8000.
