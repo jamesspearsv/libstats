@@ -72,9 +72,6 @@ A completed configuration should resemble the following:
 ├── data/
 │   ├── db.sqlite3
 │   └── libstats-config.json
-├── development_files/
-│   ├── dev_db.sqlite3
-│   └── dev_admin.txt
 ├── libstats/
 │   ├── reference/
 │   │   └── settings.py
