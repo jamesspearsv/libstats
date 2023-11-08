@@ -36,8 +36,8 @@ Install these using `requirements.txt` and pip, `Pipfile` and pipenv, or other p
 
 Libstats has been set up to be deployed using docker and docker-compose. The `docker-compose.yml` file creates two containers. 
 
-- First, a Gunicorn container is created to run and serve the libstats Django app using Gunicorn. In this container, dependencies are installed using `requirements.txt`. Then any database migrations are applied and static files are collected using `entrypoint.sh`. The configuration for this container is within the project root.
-- Second, an nginx container is created to serve as a proxy server and to serve static files for libstats. The configuration for this container is within `/nginx`.
+- First, a Gunicorn container is created to run and serve the libstats Django app using Gunicorn. In this container, dependencies are installed using `requirements.txt`. Then any database migrations are applied and static files are collected using `entrypoint.sh`. The configuration for this container is in `/services/gunicorn`
+- Second, an nginx container is created to serve as a proxy server and to serve static files for libstats. The configuration for this container is within `/services/nginx`.
 
 To complete the Docker configuration, you will need to create `/data` in the root of the project and two files: `db.sqlite3` and `libstats-config.json`
 
