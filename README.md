@@ -54,7 +54,8 @@ To complete the Docker configuration, you will need to create `/data` in the roo
 
 ```
 {
-    "DEBUG": true OR false,
+    "DEV_MODE": true or false,
+    "DEBUG": true or false,
     "ALLOWED_HOSTS": ["NGINX_UPSTREAM_NAME"],
     "SECRET_KEY": "MAKE_SURE_TO_SET_A_SECRET_KEY",
     "CSRF_TRUSTED_ORIGINS": ["http://HOST:NGINX_CONTAINER_PORT"]
@@ -97,7 +98,16 @@ Once you have the correct configuration files in `/data` you can then run `docke
 
 ## Development Mode
 
-To place libstats into development mode, move into `/libstats` and edit `/reference/settings.py`. Change the following line form `MODE = 'PROD'` to `MODE = 'DEV'`
+To place libstats into development mode, you will need to create `libstats-config.json` in `/data` with at least the following lines:
+
+```
+{
+    "DEV_MODE": true or false,
+    "DEBUG": true or false
+}
+```
+
+You should be able to adjust the vaules in your production `libstats-config.json` as needed if you have made this.
 
 You will need a development database in `/libstats`for the app to work in development mode. Use `python manage.py migrate` to make a new database or copy over an existing database you want to use named `db.sqlite3`.
 

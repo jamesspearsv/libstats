@@ -14,23 +14,32 @@ from pathlib import Path
 import os
 import json
 
-# Set app running mode
-# MODE == "DEV" OR "PROD"
-MODE = 'PROD'
-
-if MODE == 'PROD': # Use PROD mode for running on production server
+# Find app config file based on envirionment
+try:
     with open('/libstats-config.json') as config_file:
         config = json.load(config_file)
+except:
+    with open('../data/libstats-config.json') as config_file:
+        config = json.load(config_file)
 
-    DEBUG = config['DEBUG']
+DEV_MODE = config['DEV_MODE']
+
+# Set config options specific to running mode
+if DEV_MODE == False:
+    print("MODE IT SET TO PROD")
+
     ALLOWED_HOSTS = config['ALLOWED_HOSTS']
     CSRF_TRUSTED_ORIGINS = config['CSRF_TRUSTED_ORIGINS']
     SECRET_KEY = config['SECRET_KEY']
 
-if MODE == 'DEV': # Use DEV mode for running on local development machine
-    DEBUG = True
+else:
+    print("MODE IS SET TO DEV")
+    
     ALLOWED_HOSTS = ["*"]
     SECRET_KEY = 'super_secret_key'
+
+# Set debug mode
+DEBUG = config['DEBUG']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
