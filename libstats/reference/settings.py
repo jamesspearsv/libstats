@@ -26,7 +26,7 @@ DEV_MODE = config['DEV_MODE']
 
 # Set config options specific to running mode
 if DEV_MODE == False:
-    print("MODE IT SET TO PROD")
+    print("MODE IS SET TO PROD")
 
     ALLOWED_HOSTS = config['ALLOWED_HOSTS']
     CSRF_TRUSTED_ORIGINS = config['CSRF_TRUSTED_ORIGINS']
