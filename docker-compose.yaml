@@ -17,6 +17,7 @@ services:
       - ./data/libstats-config.json:/libstats-config.json
     build:
       context: .
+      dockerfile: ./gunicorn/Dockerfile
     ports:
       - "8080:8080"
     restart: unless-stopped
