@@ -81,12 +81,14 @@ A completed configuration should resemble the following:
 │       ├── urls.py
 │       ├── util.py
 │       └── views.py
-├── nginx/
-│   ├── Dockerfile
-│   └── default.conf
+├── services/
+│   ├── gunicorn/
+│   │   ├── Dockerfile
+│   │   └── entrypoint.sh
+│   └── nginx/
+│       ├── Dockerfile
+│       └── default.conf
 ├── docker-compose.yml
-├── Dockerfile
-├── entrypoint.sh
 ├── Pipfile
 ├── README.md
 └── requirements.txt

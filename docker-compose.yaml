@@ -17,12 +17,12 @@ services:
       - ./data/libstats-config.json:/libstats-config.json
     build:
       context: .
-      dockerfile: ./gunicorn/Dockerfile
+      dockerfile: ./services/gunicorn/Dockerfile
     ports:
       - "8080:8080"
     restart: unless-stopped
   nginx:
-    build: ./nginx
+    build: ./services/nginx
     volumes:
       - static:/static
     ports:

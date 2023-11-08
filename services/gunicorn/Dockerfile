@@ -34,5 +34,5 @@ EXPOSE 8080
 # Run the application.
 #CMD gunicorn 'reference.wsgi' --bind=0.0.0.0:8000
 
-COPY ./gunicorn/entrypoint.sh /
+COPY ./services/gunicorn/entrypoint.sh /
 ENTRYPOINT [ "sh", "/entrypoint.sh" ]
