@@ -11,13 +11,13 @@ version: "3.8"
 
 services:
   gunicorn:
+    build:
+      context: .
+      dockerfile: ./services/gunicorn/Dockerfile
     volumes:
       - static:/app/static
       - ./data/db.sqlite3:/app/db.sqlite3
       - ./data/libstats-config.json:/libstats-config.json
-    build:
-      context: .
-      dockerfile: ./services/gunicorn/Dockerfile
     ports:
       - "8080:8080"
     restart: unless-stopped
