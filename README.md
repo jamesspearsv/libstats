@@ -2,7 +2,7 @@
 
 ## About
 
-MPL LibStats is a simple web app built using Python, Django, SQLite, HTML, CSS, and Javascript that helps library staff record, track, and report reference interactions with library patrons. This app is a basic clone of the LibAnswers module from SpringShare's LibApps cloud platform. The goal of this project was to create a similar yet simpler tool for use in a library setting. 
+LibStats is a simple web app built using Python, Django, SQLite, HTML, CSS, and Javascript that helps library staff record, track, and report reference interactions with library patrons. This app is a basic clone of the LibAnswers module from SpringShare's LibApps cloud platform. The goal of this project was to create a similar yet simpler tool for use in a library setting. 
 
 Because of the overall goal to make this project as simple as possible, the app lacks some of the detailed recording and reporting abilities present in other reference statistics collection software in exchange for meeting the specific and most important needs of my library. This project could be extended to meet future needs or the specific needs of other libraries. 
 
@@ -27,16 +27,15 @@ To get started using Libstats you will need to install:
 - Django 
 - Gunicorn
 - Docker
-- Docker-Compose
 
 Install these using `requirements.txt` and pip, `Pipfile` and pipenv, or other python virtual environment tool.
 
 
 ## Docker Configuration
 
-Libstats has been set up to be deployed using docker and docker-compose. The `docker-compose.yml` file creates two containers. 
+Libstats has been set up to be deployed using docker. The `docker-compose.yml` file creates two containers. 
 
-- First, a Gunicorn container is created to run and serve the libstats Django app using Gunicorn. In this container, dependencies are installed using `requirements.txt`. Then any database migrations are applied and static files are collected using `entrypoint.sh`. The configuration for this container is in `/services/gunicorn`
+- First, a Gunicorn container is created to run and serve the libstats app using Gunicorn. In this container, dependencies are installed using `requirements.txt`. Then any database migrations are applied and static files are collected using `entrypoint.sh`. The configuration for this container is in `/services/gunicorn`
 - Second, an nginx container is created to serve as a proxy server and to serve static files for libstats. The configuration for this container is within `/services/nginx`.
 
 To complete the Docker configuration, you will need to create `/data` in the root of the project and two files: `db.sqlite3` and `libstats-config.json`
