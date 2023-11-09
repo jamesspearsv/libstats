@@ -14,25 +14,32 @@ from pathlib import Path
 import os
 import json
 
-# Set app running mode
-# MODE == "DEV" OR "PROD"
-MODE = 'PROD'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-# SECURITY WARNING: keep the secret key used in production secret!
-if MODE == 'PROD': # Use PROD mode for running on production server
-    with open('/etc/libstats-config.json') as config_file:
+# Find app config file based on envirionment
+try:
+    with open('/libstats-config.json') as config_file:
+        config = json.load(config_file)
+except:
+    with open('../data/libstats-config.json') as config_file:
         config = json.load(config_file)
 
-    DEBUG = False
+DEV_MODE = config['DEV_MODE']
+
+# Set config options specific to running mode
+if DEV_MODE == False:
+    print("MODE IS SET TO PROD")
+
     ALLOWED_HOSTS = config['ALLOWED_HOSTS']
     CSRF_TRUSTED_ORIGINS = config['CSRF_TRUSTED_ORIGINS']
     SECRET_KEY = config['SECRET_KEY']
 
-if MODE == 'DEV': # Use DEV mode for running on local development machine
-    DEBUG = True
-    ALLOWED_HOSTS = ['*']
-    SECRET_KEY = 'django-insecure-g13pdog#2ebma&r_vr=4&#d_2u3=#8n1e304zio$6!zr&m87df'
+else:
+    print("MODE IS SET TO DEV")
+    
+    ALLOWED_HOSTS = ["*"]
+    SECRET_KEY = 'super_secret_key'
+
+# Set debug mode
+DEBUG = config['DEBUG']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

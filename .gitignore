@@ -1,5 +1,5 @@
 # Ignore production DB file
-db.sqlite3
+/libstats/data
 
 # Ignore MacOS files
 .DS_Store
@@ -12,9 +12,15 @@ reference.sock
 .reference.sock*
 
 # Ignore static files. Generate using Djano-Admin collectstatic command
-static/admin
-static/transactions
+/libstats/static/admin
+/libstats/static/transactions
 
 # Ignore __pycache__
-reference/__pycache__/*.pyc
-transactions/__pycache__/*.pyc
+/libstats/reference/__pycache__/*.pyc
+/libstats/transactions/__pycache__/*.pyc
+
+# Ignore data folder
+/data
+
+# Dev database
+/libstats/db.sqlite3

@@ -1,0 +1,35 @@
+# Comments are provided throughout this file to help you get started.
+# If you need more help, visit the Docker compose reference guide at
+# https://docs.docker.com/compose/compose-file/
+
+# Here the instructions define your application as a service called "server".
+# This service is built from the Dockerfile in the current directory.
+# You can add other services your application may depend on here, such as a
+# database or a cache. For examples, see the Awesome Compose repository:
+# https://github.com/docker/awesome-compose
+version: "3.8"
+
+services:
+  gunicorn:
+    build:
+      context: .
+      dockerfile: ./services/gunicorn/Dockerfile
+    volumes:
+      - static:/app/static
+      - ./data/db.sqlite3:/app/db.sqlite3
+      - ./data/libstats-config.json:/libstats-config.json
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+  nginx:
+    build: ./services/nginx
+    volumes:
+      - static:/static
+    ports:
+      - "8090:80"
+    restart: unless-stopped
+    depends_on:
+      - gunicorn
+
+volumes:
+  static:
