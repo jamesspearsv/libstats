@@ -24,7 +24,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     python -m pip install -r requirements.txt
 
 # Copy the source code into the container.
-COPY ./libstats /app
+COPY ./app /app
 
 WORKDIR /app
 

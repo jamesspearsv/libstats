@@ -69,10 +69,7 @@ A completed configuration should resemble the following:
 
 ```
 .
-├── data/
-│   ├── db.sqlite3
-│   └── libstats-config.json
-├── libstats/
+├── app/
 │   ├── reference/
 │   │   └── settings.py
 │   └── transactions/
@@ -80,6 +77,9 @@ A completed configuration should resemble the following:
 │       ├── urls.py
 │       ├── util.py
 │       └── views.py
+├── data/
+│   ├── db.sqlite3
+│   └── libstats-config.json
 ├── services/
 │   ├── gunicorn/
 │   │   ├── Dockerfile
