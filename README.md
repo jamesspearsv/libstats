@@ -110,7 +110,7 @@ To place libstats into development mode, you will need to create `libstats-confi
 
 You should be able to adjust the vaules in your production `libstats-config.json` as needed if you have made this.
 
-You will need a development database in `/libstats`for the app to work in development mode. Use `python manage.py migrate` to make a new database or copy over an existing database you want to use named `db.sqlite3`.
+You will need a development database in `/app`for the app to work in development mode. Use `python manage.py migrate` to make a new database or copy over an existing database you want to use named `db.sqlite3`.
 
 Once you have the development environment set up run the following to make any migrations and run the Django dev server by using `python manage.py runserver`
 
