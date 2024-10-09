@@ -63,7 +63,7 @@ To complete the Docker configuration, you will need to create `/data` in the roo
 
 Both containers read and write static files to and from the `static` volume that is created in `docker-compose.yml`. You could map this to a location in the root of the directory or another location on your system if needed. For example, if you needed to build static files before running your containers and then wanted to inject them into your containers.
 
-Make sure to check that the default container ports are available on your system in `docker-compose.yml`. By default, Gunicorn listens on port 8080 and nginx listens on port 80. These are mapped to ports 8080 and 80 on the host system by default. Adjust them according if they are not available on your system. If you change the port that the Gunicorn container listens on, remember to make that change in `/nginx/default.conf`.
+Make sure to check that the default container ports are available on your system in `docker-compose.yml`. By default, Gunicorn listens on port 9000 and nginx listens on port 80. These are mapped to ports 9000 and 80 on the host system by default. Adjust them according if they are not available on your system. If you change the port that the Gunicorn container listens on, remember to make that change in `/nginx/default.conf`.
 
 A completed configuration should resemble the following:
 
