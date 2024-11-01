@@ -19,7 +19,7 @@ services:
       - ./data/db.sqlite3:/app/db.sqlite3
       - ./data/libstats-config.json:/libstats-config.json
     ports:
-      - "5500:5500"
+      - "3000:3000"
     restart: unless-stopped
   nginx:
     build: ./services/nginx
