@@ -1,5 +1,9 @@
 # LibStats
 
+**Deprecated**
+
+This project has been deprecated and all active development has migrated to [libstats-node](https://github.com/jamesspearsv/libstats-node)
+
 ## About
 
 LibStats is a simple web app built using Python, Django, SQLite, HTML, CSS, and Javascript that helps library staff record, track, and report reference interactions with library patrons. This app is a basic clone of the LibAnswers module from SpringShare's LibApps cloud platform. The goal of this project was to create a similar yet simpler tool for use in a library setting. 
