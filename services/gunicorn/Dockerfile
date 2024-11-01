@@ -29,7 +29,7 @@ COPY ./app /app
 WORKDIR /app
 
 # Expose the port that the application listens on.
-EXPOSE 80
+EXPOSE 5000
 
 # Run the application.
 #CMD gunicorn 'reference.wsgi' --bind=0.0.0.0:8000
